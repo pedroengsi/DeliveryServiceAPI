@@ -1,0 +1,1495 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DeliveryServiceAPI</name>
+    </assembly>
+    <members>
+        <member name="T:DeliveryServiceAPI.ApiDbContext.ApplicationDbContext">
+            <inheritdoc />
+            <summary>
+                Class to store the users and roles
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.ApplicationDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{DeliveryServiceAPI.ApiDbContext.ApplicationDbContext})">
+            <inheritdoc />
+            <summary>
+                Class constructor
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:DeliveryServiceAPI.ApiDbContext.ApplicationDummyData">
+            <summary>
+                Class used to generate dummy data needed for the application
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.ApplicationDummyData.AddDummyUsersAsync(DeliveryServiceAPI.Services.IAccountsService)">
+            <summary>
+                Method used to add the dummy user data to the service
+            </summary>
+            <param name="accountsService"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.ApplicationDummyData.AddRoleAsync(DeliveryServiceAPI.Services.IAccountsService,System.String)">
+            <summary>
+            	Add role to the system
+            </summary>
+            <param name="accountsService"></param>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.ApplicationDummyData.AddUser(DeliveryServiceAPI.Services.IAccountsService,DeliveryServiceAPI.Models.UserCreate,System.String)">
+            <summary>
+            	Add user to the system
+            </summary>
+            <param name="accountsService"></param>
+            <param name="newUser"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiContext">
+            <inheritdoc />
+            <summary>
+                Class to store the points and routes
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiContext})">
+            <inheritdoc />
+            <summary>
+                Class constructor
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiContext.Points">
+            <summary>
+                Representation of the Points
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiContext.Routes">
+            <summary>
+                Representation of the Routes
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiDummyData">
+            <summary>
+                Class used to generate dummy data for the Delivery Service API
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiDummyData.AddDummyData(DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiContext)">
+            <summary>
+                Method used to add the dummy data to the context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiDummyData.CreateDummyPoints">
+            <summary>
+                Creates the dummy points for the service
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiDummyData.CreateDummyRoutes">
+            <summary>
+                Creates the dummy routes for the service
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiDummyData.AddPointEntity(System.String,System.String)">
+            <summary>
+                Method to add a new point entity
+            </summary>
+            <param name="pointId"></param>
+            <param name="pointName"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiDummyData.AddRouteEntity(System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+                Method to add a new route entity
+            </summary>
+            <param name="routeId"></param>
+            <param name="routeName"></param>
+            <param name="originId"></param>
+            <param name="destinationId"></param>
+            <param name="time"></param>
+            <param name="cost"></param>
+        </member>
+        <member name="T:DeliveryServiceAPI.Controllers.AccountsController">
+            <inheritdoc />
+            <summary>
+                Accounts API Controller
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.AccountsController.#ctor(DeliveryServiceAPI.Services.IAccountsService)">
+            <summary>
+                Accounts Controller constructor
+            </summary>
+            <param name="accountsService">Service responsible for all the operations over the accounts</param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.AccountsController.LoginUser(DeliveryServiceAPI.Models.UserLogin,System.Threading.CancellationToken)">
+            <summary>
+                Login a user and returns the Bearer Token
+            </summary>
+            <param name="login">User login info</param>
+            <param name="ct">Cancellation token to stop the retrieval of the points</param>
+            <returns>Returns Ok on sucess and BadRequest if it fauls</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.AccountsController.VerifyLoginStatus">
+            <summary>
+                Verifies if a user has logged in
+            </summary>
+            <returns>Returns Ok on sucess and Unauthorized if it fauls</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.AccountsController.CreateNewUserAsync(DeliveryServiceAPI.Models.UserCreate,System.Threading.CancellationToken)">
+            <summary>
+                Inserts a new normal user
+            </summary>
+            <param name="newUser">The info of the new user to create</param>
+            <param name="ct">Cancellation token to stop the retrieval of the points</param>
+            <returns>Returns Ok on sucess and BadRequest if it fauls</returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Controllers.PointsController">
+            <inheritdoc />
+            <summary>
+                Points API Controller
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.PointsController.#ctor(DeliveryServiceAPI.Services.IPointsService,DeliveryServiceAPI.Services.IAccountsService)">
+            <summary>
+            </summary>
+            <param name="pointsService">Service responsible for all the operations over the Points</param>
+            <param name="accountsService">Service responsible for all the operations over the accounts</param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.PointsController.GetPointsAsync(System.Threading.CancellationToken)">
+            <summary>
+                Get a list of all available points
+            </summary>
+            <param name="ct">Cancellation token to stop the retrieval of the points</param>
+            <returns>Returns a collection of points</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.PointsController.GetPointByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Get the point with the given id
+            </summary>
+            <param name="pointId">The id of the point to retrieve</param>
+            <param name="ct">Cancellation token to stop the retrieval of the points</param>
+            <returns>Returns a point</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.PointsController.CreateNewPointAsync(DeliveryServiceAPI.Models.PointCreate,System.Threading.CancellationToken)">
+            <summary>
+                Insert a new point
+            </summary>
+            <param name="newPoint">The name of the new point to create</param>
+            <param name="ct">Cancellation token to stop the retrieval of the points</param>
+            <returns>Returns Ok on sucess and BadRequest if it fauls</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.PointsController.UpdatePointByIdAsync(System.Guid,DeliveryServiceAPI.Models.PointUpdate,System.Threading.CancellationToken)">
+            <summary>
+                Update the point with the given id
+            </summary>
+            <param name="pointId">The id of the point to update</param>
+            <param name="pointToUpdate">The point name to update</param>
+            <param name="ct">Cancellation token to stop the update of the point</param>
+            <returns>Returns a point</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.PointsController.DeletePointByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Delete the point with the given id
+            </summary>
+            <param name="pointId">The id of the point to Delete</param>
+            <param name="ct">Cancellation token to stop the deletion of the point</param>
+            <returns>Returns NoContent</returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Controllers.RootController">
+            <inheritdoc />
+            <summary>
+                Root API Controller to show the user the available links
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.RootController.GetRoot">
+            <summary>
+                Root entry point to the Delivery Service API
+            </summary>
+            <remarks>
+                This Request lists the main links of the API
+            </remarks>
+            <returns>
+                The Delivery Service API main links
+            </returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Controllers.RoutesController">
+            <inheritdoc />
+            <summary>
+                Routes API Controller
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.RoutesController.#ctor(DeliveryServiceAPI.Services.IRoutesService,DeliveryServiceAPI.Services.IPointsService,DeliveryServiceAPI.Services.IAccountsService)">
+            <summary>
+                Root Controller constructor
+            </summary>
+            <param name="routesService">Service responsible for all the operations over the Routes</param>
+            <param name="pointsService">Service responsible for all the operations over the Points</param>
+            <param name="accountsService">Service responsible for all the operations over the accounts</param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.RoutesController.GetRoutesAsync(System.Threading.CancellationToken)">
+            <summary>
+                Get a list of all available routes
+            </summary>
+            <param name="ct">Cancellation token to stop the retrieval of the routes</param>
+            <returns>Returns a collection of routes</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.RoutesController.GetRouteByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Get the route with the given id
+            </summary>
+            <param name="routeId">The id of the route to retrieve</param>
+            <param name="ct">Cancellation token to stop the retrieval of the route</param>
+            <returns>Returns a route</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.RoutesController.CreateNewRouteAsync(DeliveryServiceAPI.Models.RouteCreate,System.Threading.CancellationToken)">
+            <summary>
+                Insert a new route
+            </summary>
+            <param name="newRoute">The information relative to the route to create</param>
+            <param name="ct">Cancellation token to stop the creation of the route</param>
+            <returns>Returns Ok on sucess and BadRequest if it fauls</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.RoutesController.UpdateRouteByIdAsync(System.Guid,DeliveryServiceAPI.Models.RouteUpdate,System.Threading.CancellationToken)">
+            <summary>
+                Update the route with the given id
+            </summary>
+            <param name="routeId">The id of the route to update</param>
+            <param name="routeToUpdate">The route fields to update</param>
+            <param name="ct">Cancellation token to stop the update of the route</param>
+            <returns>Returns a route</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.RoutesController.DeleteRouteByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Delete the route with the given id
+            </summary>
+            <param name="routeId">The id of the route to Delete</param>
+            <param name="ct">Cancellation token to stop the delete of the route</param>
+            <returns>Returns NoContent</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Controllers.RoutesController.SearchPathRouteAsync(System.Guid,System.Guid,DeliveryServiceAPI.Models.SearchAlgorithmParameters,System.Threading.CancellationToken)">
+            <summary>
+                Get the route with the optimal path
+            </summary>
+            <param name="originPointId">The id of the point to start the path</param>
+            <param name="destinationPointId">The id of the point to end the path</param>
+            <param name="searchParameters">The parameters needed to perform the search</param>
+            <param name="ct">Cancellation token to stop the retrieval of the route</param>
+            <returns>Returns a route</returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Filters.JsonExceptionFilter">
+            <inheritdoc />
+            <summary>
+                Class responsible to treat the exceptions
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Filters.JsonExceptionFilter.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+                Class constructor
+            </summary>
+            <param name="env"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Filters.JsonExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <inheritdoc />
+            <summary>
+                Method responsible to treat the exceptions and return the corresponding server error code to the user
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:DeliveryServiceAPI.Filters.LinkRewritingFilter">
+            <inheritdoc />
+            <summary>
+                Helper class to automatically generate links to resources
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Filters.LinkRewritingFilter.#ctor(Microsoft.AspNetCore.Mvc.Routing.IUrlHelperFactory)">
+            <summary>
+                Class constructor
+            </summary>
+            <param name="urlHelperFactory"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Filters.LinkRewritingFilter.OnResultExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ResultExecutionDelegate)">
+            <inheritdoc />
+            <summary>
+                Handler executed before the result is sent back to the user
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Infrastructure.LinkRewriter">
+            <summary>
+                Helper class to rewrite all the links before sending the resource back to the user
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Infrastructure.LinkRewriter.#ctor(Microsoft.AspNetCore.Mvc.IUrlHelper)">
+            <summary>
+                Class constructor
+            </summary>
+            <param name="urlHelper"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Infrastructure.LinkRewriter.Rewrite(DeliveryServiceAPI.Models.Link)">
+            <summary>
+                Rewrites the original link
+            </summary>
+            <param name="original">The original link</param>
+            <returns></returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Infrastructure.MappingProfile">
+            <inheritdoc />
+            <summary>
+                The AutoMapper class to help mapp from an entity in the context to the corresponding resource
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Infrastructure.MappingProfile.#ctor">
+            <summary>
+                The Mapping constructor for the entities
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.ApiError">
+            <summary>
+                Class used to report any error to the user
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.ApiError.#ctor">
+            <summary>
+                ApiError constructor
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.ApiError.#ctor(System.String)">
+            <summary>
+                ApiError constructor
+            </summary>
+            <param name="message">Message to add to the error.</param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.ApiError.#ctor(System.String,System.String)">
+            <summary>
+                ApiError constructor
+            </summary>
+            <param name="message">Message to add to the error.</param>
+            <param name="detail">Detail to add to the error.</param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.ApiError.#ctor(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary>
+                ApiError constructor
+            </summary>
+            <param name="modelState">Model containing the parameters and their corresponding errors</param>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.ApiError.Message">
+            <summary>
+                Error Message
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.ApiError.Detail">
+            <summary>
+                Full detail of the errors
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.ApiError.StackTrace">
+            <summary>
+                Stack trace of the error, specially for debugging purposes
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.Collection`1">
+            <inheritdoc />
+            <summary>
+                Class used for collections
+            </summary>
+            <typeparam name="T">Type of the items of the collection</typeparam>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Collection`1.Value">
+            <summary>
+                List of values of the collection
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Collection`1.Size">
+            <summary>
+                Size of the items collection
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.Collection`1.Create``1(DeliveryServiceAPI.Models.Link,`0[],System.Int32)">
+            <summary>
+                Helper method to create result responses
+            </summary>
+            <typeparam name="TResponse"></typeparam>
+            <param name="self"></param>
+            <param name="items"></param>
+            <param name="size"></param>
+            <returns>The response result for the collection</returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.Link">
+            <summary>
+                Helper class to automatically generate the url to a given resource / operation
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.Link.To(System.String,System.Object)">
+            <summary>
+                Generate link To resource
+            </summary>
+            <param name="routeName"></param>
+            <param name="routeValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.Link.ToCollection(System.String,System.Object)">
+            <summary>
+                Generate link To Collectionresource
+            </summary>
+            <param name="routeName"></param>
+            <param name="routeValues"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Link.Href">
+            <summary>
+                Link to self resource
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Link.Method">
+            <summary>
+                Method needed to use in the self url
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Link.Relations">
+            <summary>
+                Type of relations for the self url
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Link.RouteName">
+            <summary>
+                Stores the route name before being rewritten
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Link.RouteValues">
+            <summary>
+                Stores the route parameters before being rewritten
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.Point">
+            <inheritdoc />
+            <summary>
+                The resource point class
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Point.Name">
+            <summary>
+                The Name of the Point
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.PointCreate">
+            <summary>
+                This entity is used to add a new Point
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.PointCreate.PointName">
+            <summary>
+                Point Name to create, it can't be empty
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.PointEntity">
+            <summary>
+                The Point Entity
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.PointEntity.Id">
+            <summary>
+                Unique point Id
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.PointEntity.Name">
+            <summary>
+                Point Name
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.PointsResponse">
+            <inheritdoc />
+            <summary>
+                Points collection class returned to the user
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.PointUpdate">
+            <summary>
+                This entity is used to update an existing Point
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.PointUpdate.PointName">
+            <summary>
+                Point Name to update, it can't be empty
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.Resource">
+            <inheritdoc />
+            <summary>
+                The base resource class
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Resource.Self">
+            <summary>
+                The Url to access the current resource
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Resource.Delete">
+            <summary>
+                The Url to delete the current resource
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Resource.Update">
+            <summary>
+                The Url to update the current resource
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.Results`1">
+            <summary>
+                Result class to store returned lists
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Results`1.Items">
+            <summary>
+                Items list returned
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Results`1.TotalSize">
+            <summary>
+                Total size of the items list
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.RootResponse">
+            <inheritdoc />
+            <summary>
+                Root resource returned to the use
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RootResponse.Points">
+            <summary>
+                Link to the Points list
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RootResponse.Routes">
+            <summary>
+                Link to the Routes list
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.Route">
+            <inheritdoc />
+            <summary>
+                Route resource returned to the use
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Route.Name">
+            <summary>
+                Route Name
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Route.Origin">
+            <summary>
+                Link to the origin point of the route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Route.Destination">
+            <summary>
+                Link to the destination point of the route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Route.Cost">
+            <summary>
+                The cost of the route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.Route.Time">
+            <summary>
+                The time of the route
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.RouteCreate">
+            <summary>
+                This entity is used to create a new Route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteCreate.RouteName">
+            <summary>
+                Route Name to create, it can't be empty
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteCreate.Origin">
+            <summary>
+                The id of the origin point
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteCreate.Destination">
+            <summary>
+                The id of the destination point
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteCreate.Cost">
+            <summary>
+                The new cost of the route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteCreate.Time">
+            <summary>
+                The new time of the route
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.RouteEntity">
+            <summary>
+                This entity is used to store the routes
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteEntity.Id">
+            <summary>
+                Unique route Id
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteEntity.Name">
+            <summary>
+                Route Name
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteEntity.Origin">
+            <summary>
+                The origin point of the route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteEntity.Destination">
+            <summary>
+                The destination point of the route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteEntity.Cost">
+            <summary>
+                The cost of the route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteEntity.Time">
+            <summary>
+                The time of the route
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.RoutesResponse">
+            <inheritdoc />
+            <summary>
+                Routes collection class returned to the user
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.RouteUpdate">
+            <summary>
+                This entity is used to update an existing Route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteUpdate.RouteName">
+            <summary>
+                Route Name to update, it can't be empty
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteUpdate.Origin">
+            <summary>
+                The id of the origin point
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteUpdate.Destination">
+            <summary>
+                The id of the destination point
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteUpdate.Cost">
+            <summary>
+                The new cost of the route
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.RouteUpdate.Time">
+            <summary>
+                The new time of the route
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.SearchAlgorithmParameters">
+            <summary>
+                Parameters needed by the Search Algorithms
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.SearchAlgorithmParameters.SearchOptions">
+            <summary>
+                Defines if the search is by Time or Cost
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.SearchAlgorithmParameters.SearchAlgorithm">
+            <summary>
+                Defines with Search Algorithm to use
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.SearchAlgorithmParameters.SearchOptionPath">
+            <summary>
+                Defines if the path can be direct or at least one hop
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.SearchAlgorithmResult">
+            <summary>
+                The result of performing a search for an optimal path
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.SearchAlgorithmResult.#ctor">
+            <summary>
+                Class constructor
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.SearchAlgorithmResult.RouteVertex">
+            <summary>
+                The points included in the path
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.SearchAlgorithmResult.TotalDistance">
+            <summary>
+                The total cost of the found path
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.UserCreate">
+            <summary>
+                This entity is used to create a new User
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.UserCreate.#ctor(System.String,System.String,System.String)">
+            <summary>
+                Class constructor
+            </summary>
+            <param name="userName"></param>
+            <param name="email"></param>
+            <param name="password"></param>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.UserCreate.UserName">
+            <summary>
+                The user UserName
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.UserCreate.Email">
+            <summary>
+                The user Email
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.UserCreate.Password">
+            <summary>
+                The user Pasword
+            </summary>
+            <remarks>
+                The pretended password must have:
+                - At least one digit;
+                - At least one lower case letter;
+                - At least one upper case letter;
+                - At least one non alphanumeric symbol;
+                - At least six characters.
+            </remarks>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.UserLogin">
+            <summary>
+                The class with the information needed to login the system
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.UserLogin.UserName">
+            <summary>
+                The user username
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.UserLogin.Password">
+            <summary>
+                The user password
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Models.UserLoginResult">
+            <summary>
+                User info returned to the user
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Models.UserLoginResult.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+                Class constructor
+            </summary>
+            <param name="userId"></param>
+            <param name="name"></param>
+            <param name="email"></param>
+            <param name="role"></param>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.UserLoginResult.Id">
+            <summary>
+                The user Id
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.UserLoginResult.Name">
+            <summary>
+                The user username
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.UserLoginResult.Email">
+            <summary>
+                The user email
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Models.UserLoginResult.Role">
+            <summary>
+                The user role in the system
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Program">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Program.Main(System.String[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Program.BuildWebHost(System.String[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.CouldNotCreatePoint">
+            <summary>
+              Looks up a localized string similar to Could not create the point..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.CouldNotCreateRoute">
+            <summary>
+              Looks up a localized string similar to Could not create the route.
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.EmailFieldRequired">
+            <summary>
+              Looks up a localized string similar to The Email field is required..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.IdFieldRequired">
+            <summary>
+              Looks up a localized string similar to The Id field is required..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.InvalidCostMustBeGreaterThanZero">
+            <summary>
+              Looks up a localized string similar to Invalid cost, must be greater than zero..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.InvalidDestinationPointId">
+            <summary>
+              Looks up a localized string similar to Invalid Destination Point Id..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.InvalidOriginPointId">
+            <summary>
+              Looks up a localized string similar to Invalid Origin Point Id..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.InvalidParameters">
+            <summary>
+              Looks up a localized string similar to Invalid parameters..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.InvalidPointId">
+            <summary>
+              Looks up a localized string similar to Invalid Point Id..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.InvalidRouteId">
+            <summary>
+              Looks up a localized string similar to Invalid Route Id..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.InvalidTimeMustBeGreaterThanZero">
+            <summary>
+              Looks up a localized string similar to Invalid time, must be greater than zero..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.NameFieldRequired">
+            <summary>
+              Looks up a localized string similar to The Name field is required..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.PasswordFieldRequired">
+            <summary>
+              Looks up a localized string similar to The Password field is required..
+            </summary>
+        </member>
+        <member name="P:DeliveryServiceAPI.Properties.Resources.ServerError">
+            <summary>
+              Looks up a localized string similar to A server error occurred..
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.SearchAlgorithms.AStarSearchAlgorithm">
+            <inheritdoc />
+            <summary>
+                A* Search Algorithm
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.SearchAlgorithms.BaseSearchAlgorithm">
+            <inheritdoc />
+            <summary>
+                Base Search Algorithm
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.SearchAlgorithms.BaseSearchAlgorithm.Search(DeliveryServiceAPI.SearchAlgorithms.Graph,System.Guid,System.Guid,DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOptionPath)">
+            <inheritdoc />
+            <summary>
+                Search the optimal path according to the parameters
+            </summary>
+            <param name="graph">The route graph to search</param>
+            <param name="origin">The origin point to search</param>
+            <param name="destination">The destination point</param>
+            <param name="searchOptionsPath">
+                Defines if the search can be direct or needs at least one hop between origin and
+                destination
+            </param>
+        </member>
+        <member name="T:DeliveryServiceAPI.SearchAlgorithms.DijkstraSearchAlgorithm">
+            <inheritdoc>
+                <cref></cref>
+            </inheritdoc>
+            <summary>
+                Dijkstra Search Algorithm
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.SearchAlgorithms.ISearchAlgorithm">
+            <summary>
+                Search Algorithm interface
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.SearchAlgorithms.ISearchAlgorithm.Search(DeliveryServiceAPI.SearchAlgorithms.Graph,System.Guid,System.Guid,DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOptionPath)">
+            <summary>
+                Search the optimal path according to the parameters
+            </summary>
+            <param name="graph">The route graph to search</param>
+            <param name="origin">The origin point to search</param>
+            <param name="destination">The destination point</param>
+            <param name="searchOptionsPath">Defines if the search can be direct or needs at least one hop between origin and destination</param>
+        </member>
+        <member name="T:DeliveryServiceAPI.SearchAlgorithms.SearchAlgorithmFactory">
+            <summary>
+                Factory used to create an instance of the Search Algorithm
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.SearchAlgorithms.SearchAlgorithmFactory.GetSearchAlgorithm(DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchAlgorithm)">
+            <summary>
+                Method used to create an instance of the Search Algorithm
+            </summary>
+            <param name="searchAlgorithm">Search algorithm to create</param>
+            <returns></returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.SearchAlgorithms.SearchOptions">
+            <summary>
+                Enums needed by the Search Algorithms
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchAlgorithm">
+            <summary>
+                Defines with Search Algorithm to use
+            </summary>
+        </member>
+        <member name="F:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchAlgorithm.Dijkstra">
+            <summary>
+                Dijkstra search algorithm
+            </summary>
+        </member>
+        <member name="F:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchAlgorithm.AStar">
+            <summary>
+                A* search algorithm
+            </summary>
+            <remarks>To be implemented in version 2</remarks>
+        </member>
+        <member name="T:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOption">
+            <summary>
+                Defines if the search is by Time or Cost
+            </summary>
+        </member>
+        <member name="F:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOption.Cost">
+            <summary>
+                Use the cost to search the optimal path
+            </summary>
+        </member>
+        <member name="F:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOption.Time">
+            <summary>
+                Use the time to search the optimal path
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOptionPath">
+            <summary>
+                Defines if the search is by Direct or at least one hop
+            </summary>
+        </member>
+        <member name="F:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOptionPath.Direct">
+            <summary>
+                Direct search for the shortestPath
+            </summary>
+        </member>
+        <member name="F:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOptionPath.AteLeastOneHop">
+            <summary>
+                At least one hop to the destination
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.Services.AccountsService">
+            <inheritdoc />
+            <summary>
+                Class responsible for all the operations over the routes
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.#ctor(Microsoft.Extensions.Configuration.IConfiguration,DeliveryServiceAPI.ApiDbContext.ApplicationDbContext,Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+                Class constructor
+            </summary>
+            <param name="configuration"></param>
+            <param name="context"></param>
+            <param name="userManager"></param>
+            <param name="roleManager"></param>
+            <param name="signInManager"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.CreateRoleAsync(System.String)">
+            <inheritdoc />
+            <summary>
+                Inserts a new Role
+            </summary>
+            <param name="roleName">The name of the new role to create</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.CreateUserAsync(DeliveryServiceAPI.Models.UserCreate)">
+            <inheritdoc />
+            <summary>
+                Inserts a new User
+            </summary>
+            <param name="newUser">Theinfo about the new normal user to create</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.AddUserToRoleAsync(Microsoft.AspNetCore.Identity.IdentityUser,System.String)">
+            <inheritdoc />
+            <summary>
+                Set the giver user with some role
+            </summary>
+            <param name="user"></param>
+            <param name="newRole"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.GetUserByUserName(System.String)">
+            <inheritdoc />
+            <summary>
+                Get the user with the given username
+            </summary>
+            <param name="userName">The username of the user to retrieve</param>
+            <returns>Returns a user</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.GenerateJwtToken(Microsoft.AspNetCore.Identity.IdentityUser)">
+            <inheritdoc />
+            <summary>
+                Generates the authentication token for the user
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.SignInUser(System.String,System.String)">
+            <inheritdoc />
+            <summary>
+                Signs the user in te system
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.IsAdminUser(System.String)">
+            <summary>
+                Chcks if a given user has the role of administator
+            </summary>
+            <param name="userId"></param>
+            e
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.RetrieveLoggedInUserInfo(System.Security.Claims.ClaimsPrincipal)">
+            <inheritdoc />
+            <summary>
+                Retrieves some information of the logged in user trying to execute the request
+            </summary>
+            <param name="user">The user who logged in into the system</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.CanExecuteAdminReques(System.Security.Claims.ClaimsPrincipal)">
+            <inheritdoc />
+            <summary>
+                Verifies if the user is logged in and if it is an administrator
+            </summary>
+            <param name="user">The user who logged in into the system</param>
+            <returns></returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Services.IAccountsService">
+            <summary>
+                Interface responsible for all the operations over the accounts
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.CreateRoleAsync(System.String)">
+            <summary>
+                Inserts a new Role
+            </summary>
+            <param name="roleName">The name of the new role to create</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.CreateUserAsync(DeliveryServiceAPI.Models.UserCreate)">
+            <summary>
+                Inserts a new User
+            </summary>
+            <param name="newUser">Theinfo about the new normal user to create</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.AddUserToRoleAsync(Microsoft.AspNetCore.Identity.IdentityUser,System.String)">
+            <summary>
+                Set the giver user with some role
+            </summary>
+            <param name="user"></param>
+            <param name="newRole"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.GetUserByUserName(System.String)">
+            <summary>
+                Get the user with the given username
+            </summary>
+            <param name="userName">The username of the user to retrieve</param>
+            <returns>Returns a user</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.GenerateJwtToken(Microsoft.AspNetCore.Identity.IdentityUser)">
+            <summary>
+            	Generates the authentication token for the user
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.SignInUser(System.String,System.String)">
+            <summary>
+            	Signs the user in te system
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.IsAdminUser(System.String)">
+            <summary>
+            	Chcks if a given user has the role of administator
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.RetrieveLoggedInUserInfo(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+                Retrieves some information of the logged in user trying to execute the request
+            </summary>
+            <param name="user">The user who logged in into the system</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.CanExecuteAdminReques(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+                Verifies if the user is logged in and if it is an administrator
+            </summary>
+            <param name="user">The user who logged in into the system</param>
+            <returns></returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Services.IPointsService">
+            <summary>
+                Interface responsible for all the operations over the points
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IPointsService.GetPointsAsync(System.Threading.CancellationToken)">
+            <summary>
+                Get a list of all the points
+            </summary>
+            <param name="ct">Cancellation token to stop the retrieval of the points</param>
+            <returns>Returns a collection of points</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IPointsService.GetPointByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Get the point with the given id
+            </summary>
+            <param name="id">The id of the point to retrieve</param>
+            <param name="ct">Cancellation token to stop the retrieval of the points</param>
+            <returns>Returns a point</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IPointsService.CreatePointAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+                Inserts a new Point
+            </summary>
+            <param name="newPointName">The name of the new point to create</param>
+            <param name="ct">Cancellation token to stop the insertion of the points</param>
+            <returns>Returns the Id of the created point</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IPointsService.UpdatePointByIdAsync(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+                Updates an existing Point
+            </summary>
+            <param name="id">The id of the point to update</param>
+            <param name="newPointName">The name of the new point to create</param>
+            <param name="ct">Cancellation token to stop the update of the points</param>
+            <returns>Returns the updated point</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IPointsService.DeletePointByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Delete an existing Point
+            </summary>
+            <param name="id">The id of the point to delete</param>
+            <param name="ct">Cancellation token to stop the delete of the points</param>
+        </member>
+        <member name="T:DeliveryServiceAPI.Services.IRoutesService">
+            <summary>
+                Interface responsible for all the operations over the rputes
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IRoutesService.GetRoutesAsync(System.Threading.CancellationToken)">
+            <summary>
+                Get a list of all the routes
+            </summary>
+            <param name="ct">Cancellation token to stop the retrieval of the routes</param>
+            <returns>Returns a collection of routes</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IRoutesService.GetRouteByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Get the route with the given id
+            </summary>
+            <param name="id">The id of the route to retrieve</param>
+            <param name="ct">Cancellation token to stop the retrieval of the route</param>
+            <returns>Returns a route</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IRoutesService.CreateRouteAsync(DeliveryServiceAPI.Models.RouteCreate,System.Threading.CancellationToken)">
+            <summary>
+                Inserts a new Route
+            </summary>
+            <param name="newRouteToCreate">The fields of the new route to create</param>
+            <param name="ct">Cancellation token to stop the insertion of the route</param>
+            <returns>Returns the Id of the created route</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IRoutesService.UpdateRouteByIdAsync(System.Guid,DeliveryServiceAPI.Models.RouteUpdate,System.Threading.CancellationToken)">
+            <summary>
+                Updates an existing Route
+            </summary>
+            <param name="id">The id of the route to update</param>
+            <param name="routeToUpdate">The route fields to update</param>
+            <param name="ct">Cancellation token to stop the update of the route</param>
+            <returns>Returns the updated route</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IRoutesService.DeleteRouteByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+                Delete an existing Route
+            </summary>
+            <param name="id">The id of the route to delete</param>
+            <param name="ct">Cancellation token to stop the delete of the route</param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.IRoutesService.SearchRoutePointsAsync(System.Guid,System.Guid,DeliveryServiceAPI.Models.SearchAlgorithmParameters,System.Threading.CancellationToken)">
+            <summary>
+                Performs a search to find the optimal path between two points according to the search option
+            </summary>
+            <param name="origin">The origin point</param>
+            <param name="destination">The destination point</param>
+            <param name="searchParameters">The options needed by the search algorithm</param>
+            <param name="ct">Cancellation token to stop the delete of the route</param>
+            <returns></returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Services.PointsService">
+            <inheritdoc />
+            <summary>
+                Class responsible for all the operations over the points
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.PointsService.#ctor(DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiContext)">
+            <summary>
+                Class constructor
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.PointsService.GetPointsAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Get a list of all the points
+            </summary>
+            <param name="ct">Cancellation token to stop the retrieval of the points</param>
+            <returns>Returns a collection of points</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.PointsService.GetPointByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Get the point with the given id
+            </summary>
+            <param name="id">The id of the point to retrieve</param>
+            <param name="ct">Cancellation token to stop the retrieval of the points</param>
+            <returns>Returns a point</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.PointsService.CreatePointAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Inserts a new Point
+            </summary>
+            <param name="newPointName">The name of the new point to create</param>
+            <param name="ct">Cancellation token to stop the insertion of the points</param>
+            <returns>Returns the Id of the created point</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.PointsService.UpdatePointByIdAsync(System.Guid,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Updates an existing
+            </summary>
+            <param name="id">The id of the point to update</param>
+            <param name="newPointName">The name of the new point to create</param>
+            <param name="ct">Cancellation token to stop the insertion of the points</param>
+            <returns>Returns the updated point</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.PointsService.DeletePointByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Delete an existing Point
+            </summary>
+            <param name="id">The id of the point to delete</param>
+            <param name="ct">Cancellation token to stop the delete of the points</param>
+        </member>
+        <member name="T:DeliveryServiceAPI.Services.RoutesService">
+            <inheritdoc />
+            <summary>
+                Class responsible for all the operations over the routes
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.RoutesService.#ctor(DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiContext)">
+            <summary>
+                Class constructor
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.RoutesService.GetRoutesAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Get a list of all the routes
+            </summary>
+            <param name="ct">Cancellation token to stop the retrieval of the routes</param>
+            <returns>Returns a collection of routes</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.RoutesService.GetRouteByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Get the route with the given id
+            </summary>
+            <param name="id">The id of the route to retrieve</param>
+            <param name="ct">Cancellation token to stop the retrieval of the route</param>
+            <returns>Returns a route</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.RoutesService.CreateRouteAsync(DeliveryServiceAPI.Models.RouteCreate,System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Inserts a new Route
+            </summary>
+            <param name="newRouteToCreate">The fields of the new route to create</param>
+            <param name="ct">Cancellation token to stop the insertion of the route</param>
+            <returns>Returns the Id of the created route</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.RoutesService.UpdateRouteByIdAsync(System.Guid,DeliveryServiceAPI.Models.RouteUpdate,System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Updates an existing Route
+            </summary>
+            <param name="id">The id of the route to update</param>
+            <param name="routeToUpdate">The route fields to update</param>
+            <param name="ct">Cancellation token to stop the update of the route</param>
+            <returns>Returns the updated route</returns>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.RoutesService.DeleteRouteByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc />
+            <summary>
+                Delete an existing Route
+            </summary>
+            <param name="id">The id of the route to delete</param>
+            <param name="ct">Cancellation token to stop the delete of the route</param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Services.RoutesService.SearchRoutePointsAsync(System.Guid,System.Guid,DeliveryServiceAPI.Models.SearchAlgorithmParameters,System.Threading.CancellationToken)">
+            <summary>
+                Performs a search to find the optimal path between two points according to the search option
+            </summary>
+            <param name="origin">The origin point</param>
+            <param name="destination">The destination point</param>
+            <param name="searchParameters">The options needed by the search algorithm</param>
+            <param name="ct">Cancellation token to stop the delete of the route</param>
+            <returns></returns>
+        </member>
+        <member name="T:DeliveryServiceAPI.Startup">
+            <summary>
+                Startup class for the ASP.Net Core Web Application
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+                Class constructor
+            </summary>
+            <param name="configuration">ASP.Net Core Web Application Configuration</param>
+            <param name="env"></param>
+        </member>
+        <member name="P:DeliveryServiceAPI.Startup.Configuration">
+            <summary>
+                ASP.Net Core Web Application Configuration
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:DeliveryServiceAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory,DeliveryServiceAPI.Services.IAccountsService,DeliveryServiceAPI.ApiDbContext.ApplicationDbContext,DeliveryServiceAPI.ApiDbContext.DeliveryServiceApiContext)">
+            <summary>
+                This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="loggerFactory"></param>
+            <param name="accountsService"></param>
+            <param name="applicationDbContext"></param>
+            <param name="deliveryServiceApiContext"></param>
+        </member>
+        <member name="T:DeliveryServiceAPI.StringExtensions">
+            <summary>
+            </summary>
+            ///
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.StringExtensions.ToCamelCase(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:DeliveryServiceAPI.TypeInfoMemberExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.TypeInfoMemberExtensions.GetAllConstructors(System.Reflection.TypeInfo)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.TypeInfoMemberExtensions.GetAllEvents(System.Reflection.TypeInfo)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.TypeInfoMemberExtensions.GetAllFields(System.Reflection.TypeInfo)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.TypeInfoMemberExtensions.GetAllMembers(System.Reflection.TypeInfo)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.TypeInfoMemberExtensions.GetAllMethods(System.Reflection.TypeInfo)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.TypeInfoMemberExtensions.GetAllNestedTypes(System.Reflection.TypeInfo)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.TypeInfoMemberExtensions.GetAllProperties(System.Reflection.TypeInfo)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeliveryServiceAPI.TypeInfoMemberExtensions.GetAll``1(System.Reflection.TypeInfo,System.Func{System.Reflection.TypeInfo,System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            </summary>
+        </member>
+    </members>
+</doc>

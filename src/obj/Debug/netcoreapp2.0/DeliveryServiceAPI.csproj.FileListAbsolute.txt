@@ -1,0 +1,25 @@
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.deps.json
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.runtimeconfig.json
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.runtimeconfig.dev.json
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.dll
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.pdb
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.csprojResolveAssemblyReference.cache
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.csproj.CoreCompileInputs.cache
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.AssemblyInfoInputs.cache
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.AssemblyInfo.cs
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.dll
+C:\Users\martinsp\Desktop\Ex_Files_RESTful_API_ASPNET_Core\ExerciseFiles\Final - Copy\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.pdb
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.Properties.Resources.resources
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.csproj.GenerateResource.Cache
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.csproj.CoreCompileInputs.cache
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.AssemblyInfoInputs.cache
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.AssemblyInfo.cs
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.deps.json
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.runtimeconfig.json
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.runtimeconfig.dev.json
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.dll
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.pdb
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\bin\Debug\netcoreapp2.0\DeliveryService.xml
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.dll
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.pdb
+C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.csprojResolveAssemblyReference.cache
