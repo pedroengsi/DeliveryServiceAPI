@@ -132,3 +132,5 @@ The parameters required to execute this operation are:
 * version
     * Currently 1
 
+##### Note
+The dummy data added is the same as the exercise except in the _route_ from _Point A_ to _Point E_ where the cost is _2_ instead of _5_. 
