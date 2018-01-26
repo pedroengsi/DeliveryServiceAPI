@@ -23,3 +23,17 @@ C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\bin\Debug\netcorea
 C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.dll
 C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.pdb
 C:\PMartins\Development\DeliveryServiceAPI\DeliveryServiceAPI\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.csprojResolveAssemblyReference.cache
+C:\PMartins\Development\DeliveryServiceApi\src\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.deps.json
+C:\PMartins\Development\DeliveryServiceApi\src\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.runtimeconfig.json
+C:\PMartins\Development\DeliveryServiceApi\src\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.runtimeconfig.dev.json
+C:\PMartins\Development\DeliveryServiceApi\src\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.dll
+C:\PMartins\Development\DeliveryServiceApi\src\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.pdb
+C:\PMartins\Development\DeliveryServiceApi\src\bin\Debug\netcoreapp2.0\DeliveryService.xml
+C:\PMartins\Development\DeliveryServiceApi\src\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.csprojResolveAssemblyReference.cache
+C:\PMartins\Development\DeliveryServiceApi\src\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.Properties.Resources.resources
+C:\PMartins\Development\DeliveryServiceApi\src\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.csproj.GenerateResource.Cache
+C:\PMartins\Development\DeliveryServiceApi\src\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.csproj.CoreCompileInputs.cache
+C:\PMartins\Development\DeliveryServiceApi\src\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.AssemblyInfoInputs.cache
+C:\PMartins\Development\DeliveryServiceApi\src\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.AssemblyInfo.cs
+C:\PMartins\Development\DeliveryServiceApi\src\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.dll
+C:\PMartins\Development\DeliveryServiceApi\src\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.pdb

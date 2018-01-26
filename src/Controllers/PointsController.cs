@@ -96,7 +96,7 @@
 		[ProducesResponseType(typeof(UnauthorizedResult), 401)]
 		public async Task<IActionResult> CreateNewPointAsync([FromBody] PointCreate newPoint, CancellationToken ct)
 		{
-			if (!_accountsService.CanExecuteAdminReques(User)) return Unauthorized();
+			if (!_accountsService.CanExecuteAdminRequest(User)) return Unauthorized();
 
 			if (string.IsNullOrEmpty(newPoint?.PointName))
 				return BadRequest(new ApiError(Resources.InvalidParameters, Resources.NameFieldRequired));
@@ -122,7 +122,7 @@
 		[ProducesResponseType(typeof(NotFoundResult), 404)]
 		public async Task<IActionResult> UpdatePointByIdAsync(Guid pointId, PointUpdate pointToUpdate, CancellationToken ct)
 		{
-			if (!_accountsService.CanExecuteAdminReques(User)) return Unauthorized();
+			if (!_accountsService.CanExecuteAdminRequest(User)) return Unauthorized();
 
 			if (pointId == Guid.Empty) return BadRequest(new ApiError(Resources.InvalidParameters, Resources.IdFieldRequired));
 
@@ -153,7 +153,7 @@
 		[ProducesResponseType(typeof(NotFoundResult), 404)]
 		public async Task<IActionResult> DeletePointByIdAsync(Guid pointId, CancellationToken ct)
 		{
-			if (!_accountsService.CanExecuteAdminReques(User)) return Unauthorized();
+			if (!_accountsService.CanExecuteAdminRequest(User)) return Unauthorized();
 
 			if (pointId == Guid.Empty) return BadRequest(new ApiError(Resources.InvalidParameters, Resources.IdFieldRequired));
 

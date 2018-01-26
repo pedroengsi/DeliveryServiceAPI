@@ -100,7 +100,7 @@
 		[ProducesResponseType(typeof(UnauthorizedResult), 401)]
 		public async Task<IActionResult> CreateNewRouteAsync([FromBody] RouteCreate newRoute, CancellationToken ct)
 		{
-			if (!_accountsService.CanExecuteAdminReques(User)) return Unauthorized();
+			if (!_accountsService.CanExecuteAdminRequest(User)) return Unauthorized();
 
 			if (string.IsNullOrEmpty(newRoute?.RouteName))
 				return BadRequest(new ApiError(Resources.InvalidParameters, Resources.NameFieldRequired));
@@ -135,7 +135,7 @@
 		[ProducesResponseType(typeof(UnauthorizedResult), 401)]
 		public async Task<IActionResult> UpdateRouteByIdAsync(Guid routeId, RouteUpdate routeToUpdate, CancellationToken ct)
 		{
-			if (!_accountsService.CanExecuteAdminReques(User)) return Unauthorized();
+			if (!_accountsService.CanExecuteAdminRequest(User)) return Unauthorized();
 
 			if (routeId == Guid.Empty) return BadRequest(new ApiError(Resources.InvalidParameters, Resources.IdFieldRequired));
 
@@ -174,7 +174,7 @@
 		[ProducesResponseType(typeof(NotFoundResult), 404)]
 		public async Task<IActionResult> DeleteRouteByIdAsync(Guid routeId, CancellationToken ct)
 		{
-			if (!_accountsService.CanExecuteAdminReques(User)) return Unauthorized();
+			if (!_accountsService.CanExecuteAdminRequest(User)) return Unauthorized();
 
 			if (routeId == Guid.Empty) return BadRequest(new ApiError(Resources.InvalidParameters, Resources.IdFieldRequired));
 

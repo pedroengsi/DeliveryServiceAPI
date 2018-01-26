@@ -90,7 +90,7 @@
 		[ProducesResponseType(typeof(UnauthorizedResult), 401)]
 		public async Task<IActionResult> CreateNewUserAsync([FromBody] UserCreate newUser, CancellationToken ct)
 		{
-			if (!_accountsService.CanExecuteAdminReques(User)) return Unauthorized();
+			if (!_accountsService.CanExecuteAdminRequest(User)) return Unauthorized();
 
 			if (string.IsNullOrEmpty(newUser?.UserName))
 				return BadRequest(new ApiError(Resources.InvalidParameters, Resources.NameFieldRequired));

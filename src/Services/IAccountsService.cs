@@ -77,6 +77,6 @@
 		/// </summary>
 		/// <param name="user">The user who logged in into the system</param>
 		/// <returns></returns>
-		bool CanExecuteAdminReques(ClaimsPrincipal user);
+		bool CanExecuteAdminRequest(ClaimsPrincipal user);
 	}
 }

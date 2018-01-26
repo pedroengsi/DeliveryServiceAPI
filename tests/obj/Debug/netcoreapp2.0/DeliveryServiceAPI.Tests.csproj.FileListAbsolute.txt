@@ -1,0 +1,16 @@
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.deps.json
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.runtimeconfig.json
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.runtimeconfig.dev.json
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.dll
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.pdb
+C:\PMartins\Development\DeliveryServiceApi\tests\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.csprojResolveAssemblyReference.cache
+C:\PMartins\Development\DeliveryServiceApi\tests\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.csproj.CoreCompileInputs.cache
+C:\PMartins\Development\DeliveryServiceApi\tests\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.AssemblyInfoInputs.cache
+C:\PMartins\Development\DeliveryServiceApi\tests\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.AssemblyInfo.cs
+C:\PMartins\Development\DeliveryServiceApi\tests\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.dll
+C:\PMartins\Development\DeliveryServiceApi\tests\obj\Debug\netcoreapp2.0\DeliveryServiceAPI.Tests.pdb
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.dll
+C:\PMartins\Development\DeliveryServiceApi\tests\bin\Debug\netcoreapp2.0\DeliveryServiceAPI.pdb

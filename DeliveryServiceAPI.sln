@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryServiceAPI", "src\DeliveryServiceAPI.csproj", "{B228EDED-6FE0-4873-8C4B-486A0B0DC65B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryServiceAPI.Tests", "tests\DeliveryServiceAPI.Tests.csproj", "{1141F8C1-FA4E-45CD-B9BB-C68BC2304577}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B228EDED-6FE0-4873-8C4B-486A0B0DC65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B228EDED-6FE0-4873-8C4B-486A0B0DC65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B228EDED-6FE0-4873-8C4B-486A0B0DC65B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1141F8C1-FA4E-45CD-B9BB-C68BC2304577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1141F8C1-FA4E-45CD-B9BB-C68BC2304577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1141F8C1-FA4E-45CD-B9BB-C68BC2304577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1141F8C1-FA4E-45CD-B9BB-C68BC2304577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

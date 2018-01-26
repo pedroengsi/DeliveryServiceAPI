@@ -1112,7 +1112,7 @@
             <param name="user">The user who logged in into the system</param>
             <returns></returns>
         </member>
-        <member name="M:DeliveryServiceAPI.Services.AccountsService.CanExecuteAdminReques(System.Security.Claims.ClaimsPrincipal)">
+        <member name="M:DeliveryServiceAPI.Services.AccountsService.CanExecuteAdminRequest(System.Security.Claims.ClaimsPrincipal)">
             <inheritdoc />
             <summary>
                 Verifies if the user is logged in and if it is an administrator
@@ -1183,7 +1183,7 @@
             <param name="user">The user who logged in into the system</param>
             <returns></returns>
         </member>
-        <member name="M:DeliveryServiceAPI.Services.IAccountsService.CanExecuteAdminReques(System.Security.Claims.ClaimsPrincipal)">
+        <member name="M:DeliveryServiceAPI.Services.IAccountsService.CanExecuteAdminRequest(System.Security.Claims.ClaimsPrincipal)">
             <summary>
                 Verifies if the user is logged in and if it is an administrator
             </summary>

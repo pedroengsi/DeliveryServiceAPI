@@ -216,7 +216,7 @@
 		/// </summary>
 		/// <param name="user">The user who logged in into the system</param>
 		/// <returns></returns>
-		public bool CanExecuteAdminReques(ClaimsPrincipal user)
+		public bool CanExecuteAdminRequest(ClaimsPrincipal user)
 		{
 			if (user?.Identity == null || !user.Identity.IsAuthenticated) return false;
 
