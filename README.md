@@ -134,3 +134,4 @@ The parameters required to execute this operation are:
 
 ##### Note
 The dummy data added is the same as the exercise except in the _route_ from _Point A_ to _Point E_ where the cost is _2_ instead of _5_. 
+This solution also contains some initial Unit Tests to ensure the proper functioning of the Service.
