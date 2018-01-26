@@ -30,8 +30,9 @@
 			var response = new RootResponse
 			{
 				Self = Link.To(nameof(GetRoot)),
-				Points = Link.To(nameof(PointsController.GetPointsAsync)),
-				Routes = Link.To(nameof(RoutesController.GetRoutesAsync))
+				Points = Link.To(nameof(PointsController.GetPointsAsync), new {version = "1"}),
+				Routes = Link.To(nameof(RoutesController.GetRoutesAsync), new { version = "1" }),
+				Login = Link.To(nameof(AccountsController.LoginUser))
 			};
 
 			return Ok(response);

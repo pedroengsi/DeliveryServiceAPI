@@ -15,5 +15,10 @@
 		///     Link to the Routes list
 		/// </summary>
 		public Link Routes { get; set; }
+
+		/// <summary>
+		///     Link to the Login request
+		/// </summary>
+		public Link Login { get; set; }
 	}
 }

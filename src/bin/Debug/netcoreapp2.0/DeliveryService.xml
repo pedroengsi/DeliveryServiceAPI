@@ -565,6 +565,11 @@
                 Link to the Routes list
             </summary>
         </member>
+        <member name="P:DeliveryServiceAPI.Models.RootResponse.Login">
+            <summary>
+                Link to the Login request
+            </summary>
+        </member>
         <member name="T:DeliveryServiceAPI.Models.Route">
             <inheritdoc />
             <summary>
@@ -1025,7 +1030,7 @@
                 Direct search for the shortestPath
             </summary>
         </member>
-        <member name="F:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOptionPath.AteLeastOneHop">
+        <member name="F:DeliveryServiceAPI.SearchAlgorithms.SearchOptions.SearchOptionPath.AtLeastOneHop">
             <summary>
                 At least one hop to the destination
             </summary>

@@ -51,7 +51,7 @@
 			/// <summary>
 			///     At least one hop to the destination
 			/// </summary>
-			AteLeastOneHop
+			AtLeastOneHop
 		}
 	}
 }
